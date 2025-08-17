@@ -1,17 +1,19 @@
 # This automation will turn on the watering system every day at 6:00 AM, unless it is rainy.
-alias: Daily watering
-triggers:
-  - at: "06:00:00"
+
+- id: '1754729837531'
+  alias: Daily watering
+  triggers:
+  - at: '06:00:00'
     trigger: time
-conditions:
-  - not:
-      - condition: state
-        entity_id: weather.forecast_home
-        state: rainy
-actions:
+  conditions:
+  - condition: numeric_state
+    entity_id: sensor.precipitation_forecast
+    below: 3
+  actions:
   - type: turn_on
     device_id: 8a3ec830f6d0d15358e7937d385828cd
     entity_id: cdf32ef28f347b652441943b435700f4
     domain: switch
-mode: single
+  mode: single
+
 

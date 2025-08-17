@@ -1,0 +1,17 @@
+template:
+  - triggers:
+      - trigger: time_pattern
+        hours: "/1"
+    actions:
+      - action: weather.get_forecasts
+        data:
+          type: daily
+        target:
+          entity_id: weather.forecast_home
+        response_variable: daily
+    sensor:
+      - name: Precipitation forecast
+        unique_id: precipitation_forecast_daily
+        state: "{{ daily['weather.forecast_home'].forecast[0].precipitation }}"
+        unit_of_measurement: mm
+

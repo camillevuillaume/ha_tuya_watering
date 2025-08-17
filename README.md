@@ -19,6 +19,8 @@ You need ZHA and the Meteorologisk institutt integration installed in Home Assis
 3. If this is not working, check the valve device info in the ZHA integration. Mine shows up as TS0601
 by TZE284_fhvpaltk. It was not supported by the quirk out of the box, so I had to modify it accordingly.
 3. Copy the contents of `ha_tuya_watering.yaml` file to the file `automations.yaml`, or copy the file to `/config/automations/` if your automations are stored there.
+4. Copy the contents of the file `rain_sensor.yaml` to the file `configuration.yaml`.
+5. Restart Home Assistant to apply the changes.
 
 ## Customization
 
